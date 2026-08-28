@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="A modern student directory for viewing and managing student information."
+    />
+
+    <title>Student Directory</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="brand">
+          <img
+            src="images/logo.png"
+            alt="Student Directory Logo"
+            class="brand-logo"
+          />
+
+          <span> STUD<span class="gradient-text">ORA</span> </span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#students">Students</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="signin-btn" id="signInBtn" type="button">
+            Sign In
+          </button>
+
+          <!-- Theme toggle - JS will control this -->
+
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <span class="moon">🌙</span>
+            <span class="sun">☀️</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+      <!-- ================= HERO SECTION ================= -->
+
+      <section class="hero" id="home">
+        <!-- Background Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <span class="hero-badge"> ✦ Student Management </span>
+
+          <h1>
+            Discover Every
+            <span>Student</span>
+            in One Place.
+          </h1>
+
+          <p>
+            A simple and modern student directory that helps you explore, search
+            and manage student information with ease.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#students" class="hero-btn primary-btn">
+              Explore Students
+              <span>→</span>
+            </a>
+
+            <button class="hero-btn secondary-btn">+ Add Student</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+             STUDENTS SECTION
+        ====================================================== -->
+
+      <section class="students-section" id="students">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-label"> STUDENT DIRECTORY </span>
+
+              <h2>
+                Meet Our
+                <span class="gradient-text">Students</span>
+              </h2>
+
+              <p>Search and explore student profiles from one place.</p>
+            </div>
+
+            <span class="student-count"> 12 Students </span>
+          </div>
+
+          <!-- Search and Add button -->
+
+          <div class="student-controls">
+            <div class="search-wrapper">
+              <span class="search-icon"> ⌕ </span>
+
+              <input
+                type="search"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search students..."
+                autocomplete="off"
+              />
+
+              <button
+                class="clear-search"
+                id="clearSearch"
+                type="button"
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            </div>
+
+            <button class="add-student-btn" id="openAddStudent" type="button">
+              <span>+</span>
+              Add Student
+            </button>
+          </div>
+
+          <!-- =================================================
+                     STUDENT CARDS
+                ================================================== -->
+
+          <div class="students-grid">
+            <!-- Student Card Demo -->
+
+            <!-- <article class="student-card">
+              <div class="student-image-box">
+                <img
+                  src="https://i.pravatar.cc/500?img=44"
+                  alt="Aarati Joshi"
+                />
+
+                <span class="status"> Active </span>
+              </div>
+
+              <div class="student-content">
+                <span class="student-class"> Class 11 • Computer </span>
+
+                <h3>Aarati Joshi</h3>
+
+                <p class="admission-year">◷ Admission Year: 2025</p>
+
+                <button  class="view-btn" type="button">
+                  View Information
+                  <span>→</span>
+                </button>
+              </div>
+            </article>-->
+          </div>
+
+          <div class="load-more">
+            <button class="load-more-btn" id="loadMore" type="button">
+              Load More Students
+              <span>↓</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+      <section class="about-section" id="about">
+        <div class="container">
+          <div class="section-heading centered">
+            <span class="section-label"> ABOUT THE PROJECT </span>
+
+            <h2>
+              Built With
+              <span class="gradient-text">Purpose</span>
+            </h2>
+
+            <p>
+              A practical project designed to improve frontend development and
+              JavaScript skills.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <!-- About Me -->
+
+            <div class="about-card">
+              <div class="profile-wrapper">
+                <img
+                  src="images/about-img.png"
+                  alt="Profile photo"
+                  class="profile-image"
+                />
+              </div>
+
+              <div class="about-content">
+                <span class="section-label"> ABOUT ME </span>
+
+                <h3>
+                  Hi, I'm
+                  <span class="gradient-text"> Uday </span>
+                  👋
+                </h3>
+
+                <p>
+                  I'm a Computer Science student who enjoys learning web
+                  development and building practical projects.
+                </p>
+
+                <p>
+                  This Student Directory is created to practice HTML, CSS and
+                  JavaScript while building something that feels like a
+                  real-world application.
+                </p>
+
+                <div class="tech-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>C</span>
+                  <span>SQL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services -->
+
+            <div class="services">
+              <span class="section-label"> WHAT I PROVIDE </span>
+
+              <h3>
+                Simple.
+                <span class="gradient-text"> Clean. </span>
+                Useful.
+              </h3>
+
+              <div class="service-list">
+                <div class="service-card">
+                  <div class="service-icon">◈</div>
+
+                  <div>
+                    <h4>Student Directory</h4>
+
+                    <p>
+                      Browse student information through clean profile cards.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="service-card">
+                  <div class="service-icon">⌕</div>
+
+                  <div>
+                    <h4>Student Search</h4>
+
+                    <p>Quickly find students using the search functionality.</p>
+                  </div>
+                </div>
+
+                <div class="service-card">
+                  <div class="service-icon">+</div>
+
+                  <div>
+                    <h4>Student Management</h4>
+
+                    <p>
+                      Add and organize student information through the
+                      interface.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="service-card">
+                  <div class="service-icon">◉</div>
+
+                  <div>
+                    <h4>Student Information</h4>
+
+                    <p>
+                      View complete student profiles in an organized format.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+             GET IN TOUCH
+        ====================================================== -->
+
+      <section class="contact-section" id="contact">
+        <div class="container">
+          <div class="contact-wrapper">
+            <!-- Contact information -->
+
+            <div class="contact-info">
+              <span class="section-label"> CONTACT </span>
+
+              <h2>
+                Let's Get
+                <span class="gradient-text"> In Touch. </span>
+              </h2>
+
+              <p>
+                Have a question, suggestion or want to know more about this
+                project? Feel free to send me a message.
+              </p>
+
+              <div class="contact-details">
+                <div class="contact-item">
+                  <div class="contact-icon">@</div>
+
+                  <div>
+                    <span>Email</span>
+                    <strong> hello@example.com </strong>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">◎</div>
+
+                  <div>
+                    <span>Location</span>
+                    <strong> Nepal </strong>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">↗</div>
+
+                  <div>
+                    <span>Available For</span>
+                    <strong> Web Projects </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact form -->
+
+            <div class="contact-form-card">
+              <form id="contactForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contactName"> Name </label>
+
+                    <input
+                      type="text"
+                      id="contactName"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contactEmail"> Email </label>
+
+                    <input
+                      type="email"
+                      id="contactEmail"
+                      name="email"
+                      placeholder="you@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="subject"> Subject </label>
+
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="What is this about?"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message"> Message </label>
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Write your message..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="send-btn">
+                  Send Message
+                  <span>→</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         VIEW STUDENT INFORMATION MODAL
+    ====================================================== -->
+
+    <div class="modal-overlay" id="studentModal">
+      <div class="modal">
+        <button class="modal-close" id="closeStudentModal" type="button">
+          ×
+        </button>
+
+        <span class="section-label"> STUDENT INFORMATION </span>
+
+        <h2>
+          Student
+          <span class="gradient-text"> Profile </span>
+        </h2>
+
+        <div class="modal-profile">
+          <div id="studentModelimg" class="modal-avatar">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyB9F4FOOGkZUCe0wOhSr5qskIYHp3VElpmRlqqSxkyA&s=10"
+              alt=""
+            />
+          </div>
+
+          <div>
+            <h3 id="studentModelName">Uday Kumar Baniya</h3>
+
+            <p id="studentModelabout">Class 12 • Computer</p>
+          </div>
+        </div>
+
+        <div class="information-grid">
+          <div class="information-item">
+            <span>Full Name</span>
+            <strong id="studentModelFullName"> Uday Kumar Baniya </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Student ID</span>
+            <strong id="studentModelid"> ST-1024 </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Date of Birth</span>
+            <strong id="studentModelDob"> 12 January 2006 </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Gender</span>
+            <strong id="studentModelgender"> Male </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Class</span>
+            <strong id="studentModelclass"> 12 </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Section</span>
+            <strong id="studentModelSection"> A </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Admission Year</span>
+            <strong id="studentModelAddmisionYear"> 2024 </strong>
+          </div>
+
+          <div class="information-item">
+            <span>Phone</span>
+            <strong id="studentmodelNumber"> 98XXXXXXXX </strong>
+          </div>
+
+          <div class="information-item full">
+            <span>Email</span>
+            <strong id="studentModelEmail"> student@example.com </strong>
+          </div>
+
+          <div class="information-item full">
+            <span>Address</span>
+            <strong id="studentModelAddress"> Birgunj, Nepal </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand">
+            <img
+              src="images/logo.png"
+              alt="Student Directory Logo"
+              class="brand-logo"
+            />
+
+            <span> Student<span class="gradient-text"> Directory </span> </span>
+          </a>
+
+          <p>
+            A modern student directory built for learning, practice and better
+            organization.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+
+          <a href="#home"> Home </a>
+
+          <a href="#students"> Students </a>
+
+          <a href="#about"> About </a>
+
+          <a href="#contact"> Contact </a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Connect</h4>
+
+          <a href="#"> GitHub </a>
+
+          <a href="#"> LinkedIn </a>
+
+          <a href="#"> Portfolio </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Student Directory. All rights reserved.</p>
+
+        <p>Built with HTML & CSS</p>
+      </div>
+    </footer>
+
+    <!-- =====================================================
+         ADDSTUDENTS MODEL
+    ====================================================== -->
+    <!--add student form -->
+
+    <div class="form-overlay">
+      <form class="student-form" novalidate>
+        <div class="form-header">
+          <div>
+            <span class="form-kicker">STUDENT MANAGEMENT</span>
+            <h2>Add Student</h2>
+          </div>
+
+          <button type="button" class="close-form">&times;</button>
+        </div>
+
+        <div class="form-grid">
+          <!-- Student Name -->
+          <div class="form-group">
+            <label for="studentName">Student Name</label>
+
+            <input
+              type="text"
+              id="addFormName"
+              placeholder="Enter student Fullname"
+              required
+            />
+            <span class="error"></span>
+          </div>
+
+          <!-- Class -->
+          <div class="form-group">
+            <label for="studentClass">Class</label>
+
+            <input
+              type="text"
+              id="addFormClass"
+              placeholder="e.g. Class 12"
+              required
+            />
+            <span class="error"></span>
+          </div>
+
+          <!-- Stream -->
+          <div class="form-group">
+            <label for="studentStream">Stream</label>
+
+            <select id="addFormStream" required>
+              <option value="" disabled selected>Select stream</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Science">Science</option>
+              <option value="Management">Management</option>
+              <option value="Humanities">Humanities</option>
+            </select>
+            <span class="error"></span>
+          </div>
+
+          <!-- Status -->
+          <div class="form-group">
+            <label for="studentStatus">Status</label>
+
+            <select id="addFormStatus" required>
+              <option value="" disabled selected>Select status</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+            <span class="error"></span>
+          </div>
+
+          <!-- Admission Year -->
+          <div class="form-group">
+            <label for="admissionYear">Admission Year</label>
+
+            <input
+              type="number"
+              id="admissionYear"
+              placeholder="e.g. 2024 A.D"
+              min="1900"
+              max="2100"
+              required
+            />
+            <span class="error"></span>
+          </div>
+
+          <!-- Image -->
+          <div class="form-group">
+            <label for="studentImage">Image URL</label>
+
+            <input
+              type="url"
+              id="addFormImage"
+              placeholder="Paste image URL"
+              required
+            />
+            <span class="error"></span>
+          </div>
+
+          <!-- Date of Birth -->
+          <div class="form-group">
+            <label for="studentDob">Date of Birth</label>
+
+            <input type="date" id="addFormDob" required />
+
+            <span class="error"></span>
+          </div>
+
+          <!-- Gender -->
+          <div class="form-group">
+            <label for="studentGender">Gender</label>
+
+            <select id="addFormGender" required>
+              <option value="" disabled selected>Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+
+            <span class="error"></span>
+          </div>
+
+          <!-- Section -->
+          <div class="form-group">
+            <label for="studentSection">Section</label>
+
+            <input
+              type="text"
+              id="addFormSection"
+              placeholder="e.g. A"
+              required
+            />
+
+            <span class="error"></span>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="studentPhone">Phone</label>
+
+            <input
+              type="tel"
+              id="addFormPhone"
+              placeholder="Enter phone number"
+              required
+            />
+
+            <span class="error"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="studentEmail">Email</label>
+
+            <input
+              type="email"
+              id="addFormEmail"
+              placeholder="Enter email"
+              required
+            />
+
+            <span class="error"></span>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group">
+            <label for="studentAddress">Address</label>
+
+            <input
+              type="text"
+              id="addFormAddress"
+              placeholder="e.g. Birgunj, Nepal"
+              required
+            />
+
+            <span class="error"></span>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="cancel-btn">Cancel</button>
+
+          <button type="submit" class="add-student-btn" id="add-studentBtn">
+            Add Student
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
