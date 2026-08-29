@@ -307,7 +307,22 @@ function displayCard(arr) {
 
     // Name
     const name = document.createElement("h3");
-    name.textContent = student.name;
+
+    const searchValue = searchInput.value.trim().toLowerCase();
+    const studentName = student.name;
+
+    if (searchValue && studentName.toLowerCase().includes(searchValue)) {
+      const start = studentName.toLowerCase().indexOf(searchValue);
+      const end = start + searchValue.length;
+
+      name.innerHTML =
+        studentName.slice(0, start) +
+        `<span class="highlight">${studentName.slice(start, end)}</span>` +
+        studentName.slice(end);
+    } else {
+      name.textContent = studentName;
+    }
+
     name.style.textTransform = "capitalize";
 
     // Admission year
@@ -360,7 +375,6 @@ function displayCard(arr) {
 
         displayCard(students);
       }
-   
     });
 
     // Arrow
@@ -871,4 +885,40 @@ addStudentForm.addEventListener("submit", (e) => {
   addFormPhone.classList.remove("input-valid");
   addFormEmail.classList.remove("input-valid");
   addFormAddress.classList.remove("input-valid");
+});
+
+//contact form reset
+
+// let contactForm = document.querySelector("#contactForm");
+// contactForm.addEventListener("submit", () =>{
+//   setTimeout(() => {
+// contactForm.reset();
+//   },1000);
+// });
+
+let contactForm = document.querySelector("#contactForm");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(contactForm);
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      contactForm.reset();
+      alert("Message sent successfully!");
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    alert("Network error. Please try again.");
+  }
 });

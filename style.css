@@ -24,7 +24,13 @@
   --success: #22c55e;
   --danger: #ef4444;
 
-  --gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7, #ec4899);
+  --gradient: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6,
+    #a855f7,
+    #ec4899
+  );
 
   --container: 1200px;
 
@@ -34,6 +40,7 @@
 
   --transition: 0.3s ease;
 }
+
 
 /* =========================================================
    LIGHT THEME
@@ -54,6 +61,7 @@ body.light {
   --border: rgba(15, 23, 42, 0.1);
 }
 
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -72,15 +80,18 @@ body {
   font-family: "Inter", sans-serif;
 
   background: var(--bg);
-
   color: var(--text);
 
   line-height: 1.6;
 
   overflow-x: hidden;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
-body::selection {
+::selection {
   background: var(--violet);
   color: white;
 }
@@ -106,13 +117,13 @@ img {
   max-width: 100%;
 }
 
+
 /* =========================================================
    COMMON
 ========================================================= */
 
 .container {
   width: min(calc(100% - 40px), var(--container));
-
   margin-inline: auto;
 }
 
@@ -133,7 +144,6 @@ img {
   color: #a5b4fc;
 
   font-size: 0.7rem;
-
   font-weight: 700;
 
   letter-spacing: 0.15em;
@@ -155,7 +165,6 @@ img {
 
 .section-heading p {
   color: var(--muted);
-
   font-size: 0.9rem;
 }
 
@@ -163,28 +172,54 @@ img {
   text-align: center;
 }
 
+
 /* =========================================================
-   NAVBAR
+   FLOATING NAVBAR
 ========================================================= */
 
 .navbar {
-  position: sticky;
+  position: fixed;
 
-  top: 0;
+  top: 18px;
+  left: 50%;
 
   z-index: 1000;
 
-  background: rgba(7, 10, 18, 0.78);
+  width: min(1120px, calc(100% - 32px));
 
-  border-bottom: 1px solid var(--border);
+  transform: translateX(-50%);
 
-  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  background: rgba(10, 14, 25, 0.72);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+body.light .navbar {
+  background: rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .nav-container {
-  width: min(calc(100% - 40px), var(--container));
+  min-height: 64px;
 
-  min-height: 76px;
+  padding: 0 18px;
 
   margin-inline: auto;
 
@@ -194,42 +229,60 @@ img {
 
   justify-content: space-between;
 
-  gap: 30px;
+  gap: 20px;
 }
 
-/* Brand */
+
+/* =========================================================
+   BRAND
+========================================================= */
 
 .brand {
   display: flex;
 
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 
   font-weight: 700;
 
   white-space: nowrap;
+
+  transition: transform var(--transition);
+}
+
+.brand:hover {
+  transform: translateY(-1px);
 }
 
 .brand-logo {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
 
   object-fit: contain;
 
   border-radius: 10px;
+
+  transition: transform var(--transition);
 }
 
-/* Navigation */
+.brand:hover .brand-logo {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav-links {
   display: flex;
 
   align-items: center;
 
-  gap: 32px;
+  gap: 28px;
 }
 
 .nav-links a {
@@ -237,7 +290,7 @@ img {
 
   color: var(--muted);
 
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 
   font-weight: 500;
 
@@ -250,14 +303,12 @@ img {
   position: absolute;
 
   left: 50%;
-
-  bottom: -8px;
+  bottom: -7px;
 
   width: 0;
-
   height: 2px;
 
-  border-radius: 20px;
+  border-radius: 10px;
 
   background: var(--gradient);
 
@@ -268,7 +319,7 @@ img {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--text);
+  color: var(--pink);
 }
 
 .nav-links a:hover::after,
@@ -276,30 +327,36 @@ img {
   width: 18px;
 }
 
-/* Nav actions */
+
+/* =========================================================
+   NAV ACTIONS
+========================================================= */
 
 .nav-actions {
   display: flex;
 
   align-items: center;
 
-  gap: 12px;
+  gap: 8px;
 }
 
-/* Sign in */
+
+/* =========================================================
+   SIGN IN
+========================================================= */
 
 .signin-btn {
-  padding: 9px 17px;
+  padding: 8px 15px;
 
-  border: 1px solid rgba(139, 92, 246, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.35);
 
   border-radius: 10px;
 
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(139, 92, 246, 0.07);
 
   color: var(--text);
 
-  font-size: 0.76rem;
+  font-size: 0.72rem;
 
   font-weight: 600;
 
@@ -315,35 +372,46 @@ img {
 
   transform: translateY(-2px);
 
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.22);
+  box-shadow: 0 8px 22px rgba(139, 92, 246, 0.22);
 }
 
-/* Theme toggle */
-.theme-toggle {
-  width: 42px;
-  height: 42px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+
+  place-items: center;
 
   border: 1px solid var(--border);
-  border-radius: 12px;
+
+  border-radius: 10px;
 
   background: var(--surface);
+
   color: var(--text);
 
   cursor: pointer;
 
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .theme-toggle:hover {
-  border-color: #8b5cf6;
   transform: translateY(-2px);
+
+  border-color: rgba(139, 92, 246, 0.5);
+
+  background: rgba(139, 92, 246, 0.08);
 }
 
+
 /* Dark mode */
+
 .theme-toggle .moon {
   display: block;
 }
@@ -352,7 +420,9 @@ img {
   display: none;
 }
 
+
 /* Light mode */
+
 body.light .theme-toggle .moon {
   display: none;
 }
@@ -360,31 +430,38 @@ body.light .theme-toggle .moon {
 body.light .theme-toggle .sun {
   display: block;
 }
+
+
 /* =========================================================
    HERO
 ========================================================= */
 
-/* ================= HERO SECTION ================= */
-
 .hero {
   position: relative;
+
   min-height: 720px;
 
   display: flex;
+
   align-items: center;
 
   overflow: hidden;
 
-  background-image: url("images/hero.jpg");
+  background-image: url("images/hero-img.jpg");
+
   background-size: cover;
+
   background-position: center;
+
   background-repeat: no-repeat;
 }
 
-/* ================= DARK OVERLAY ================= */
+
+/* Overlay */
 
 .hero-overlay {
   position: absolute;
+
   inset: 0;
 
   background: linear-gradient(
@@ -397,10 +474,12 @@ body.light .theme-toggle .sun {
   z-index: 1;
 }
 
-/* ================= HERO CONTENT ================= */
+
+/* Hero content */
 
 .hero-content {
   position: relative;
+
   z-index: 2;
 
   width: min(680px, 90%);
@@ -410,10 +489,12 @@ body.light .theme-toggle .sun {
   padding: 100px 0;
 }
 
-/* ================= BADGE ================= */
+
+/* Badge */
 
 .hero-badge {
   display: inline-flex;
+
   align-items: center;
 
   padding: 8px 16px;
@@ -427,6 +508,7 @@ body.light .theme-toggle .sun {
   border-radius: 50px;
 
   font-size: 14px;
+
   font-weight: 600;
 
   letter-spacing: 0.3px;
@@ -434,7 +516,8 @@ body.light .theme-toggle .sun {
   backdrop-filter: blur(10px);
 }
 
-/* ================= HEADING ================= */
+
+/* Heading */
 
 .hero h1 {
   margin: 25px 0 22px;
@@ -450,13 +533,12 @@ body.light .theme-toggle .sun {
   letter-spacing: -3px;
 }
 
-/* Highlighted word */
-
 .hero h1 span {
   color: #a78bfa;
 }
 
-/* ================= DESCRIPTION ================= */
+
+/* Description */
 
 .hero p {
   max-width: 600px;
@@ -470,7 +552,8 @@ body.light .theme-toggle .sun {
   line-height: 1.7;
 }
 
-/* ================= BUTTON CONTAINER ================= */
+
+/* Hero buttons */
 
 .hero-buttons {
   display: flex;
@@ -482,12 +565,14 @@ body.light .theme-toggle .sun {
   flex-wrap: wrap;
 }
 
-/* ================= COMMON BUTTON ================= */
+
+/* Common button */
 
 .hero-btn {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 10px;
@@ -498,13 +583,9 @@ body.light .theme-toggle .sun {
 
   border-radius: 12px;
 
-  font-family: inherit;
-
   font-size: 15px;
 
   font-weight: 600;
-
-  text-decoration: none;
 
   cursor: pointer;
 
@@ -515,7 +596,8 @@ body.light .theme-toggle .sun {
     box-shadow 0.3s ease;
 }
 
-/* ================= PRIMARY BUTTON ================= */
+
+/* Primary */
 
 .primary-btn {
   color: #ffffff;
@@ -527,8 +609,6 @@ body.light .theme-toggle .sun {
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
 }
 
-/* Primary hover */
-
 .primary-btn:hover {
   transform: translateY(-3px);
 
@@ -536,8 +616,6 @@ body.light .theme-toggle .sun {
 
   box-shadow: 0 15px 35px rgba(99, 102, 241, 0.35);
 }
-
-/* Arrow */
 
 .primary-btn span {
   font-size: 18px;
@@ -549,7 +627,8 @@ body.light .theme-toggle .sun {
   transform: translateX(4px);
 }
 
-/* ================= SECONDARY BUTTON ================= */
+
+/* Secondary */
 
 .secondary-btn {
   color: #e2e8f0;
@@ -560,8 +639,6 @@ body.light .theme-toggle .sun {
 
   backdrop-filter: blur(10px);
 }
-
-/* Secondary hover */
 
 .secondary-btn:hover {
   transform: translateY(-3px);
@@ -575,7 +652,8 @@ body.light .theme-toggle .sun {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* ================= SUBTLE PURPLE LIGHT ================= */
+
+/* Hero glow */
 
 .hero::after {
   content: "";
@@ -599,71 +677,7 @@ body.light .theme-toggle .sun {
   z-index: 1;
 }
 
-/* ================= TABLET ================= */
 
-@media (max-width: 900px) {
-  .hero {
-    min-height: 650px;
-  }
-
-  .hero-content {
-    margin-left: 6%;
-  }
-
-  .hero h1 {
-    font-size: clamp(44px, 7vw, 65px);
-  }
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 600px) {
-  .hero {
-    min-height: 650px;
-
-    background-position: 60% center;
-  }
-
-  .hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(5, 7, 20, 0.96),
-      rgba(5, 7, 20, 0.82)
-    );
-  }
-
-  .hero-content {
-    width: 90%;
-
-    margin: 0 auto;
-
-    padding: 80px 0;
-  }
-
-  .hero h1 {
-    margin-top: 22px;
-
-    font-size: clamp(42px, 12vw, 58px);
-
-    letter-spacing: -2px;
-  }
-
-  .hero p {
-    font-size: 16px;
-
-    line-height: 1.6;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .hero-btn {
-    width: 100%;
-  }
-}
 /* =========================================================
    HERO PROFILE CARD
 ========================================================= */
@@ -808,6 +822,7 @@ body.light .theme-toggle .sun {
   font-size: 1rem;
 }
 
+
 /* =========================================================
    STUDENTS
 ========================================================= */
@@ -817,8 +832,6 @@ body.light .theme-toggle .sun {
 
   background: var(--bg);
 }
-
-/* Heading */
 
 .section-heading {
   display: flex;
@@ -843,6 +856,7 @@ body.light .theme-toggle .sun {
 
   white-space: nowrap;
 }
+
 
 /* =========================================================
    SEARCH CONTROLS
@@ -877,7 +891,7 @@ body.light .theme-toggle .sun {
 
   border-radius: 14px;
 
-  background: rgba(16, 22, 36, 0.8);
+  background: var(--surface);
 
   color: var(--text);
 
@@ -885,7 +899,7 @@ body.light .theme-toggle .sun {
 }
 
 .search-input::placeholder {
-  color: #69768b;
+  color: var(--muted);
 }
 
 .search-input:focus {
@@ -926,7 +940,17 @@ body.light .theme-toggle .sun {
   font-size: 1.1rem;
 }
 
-/* Add Student */
+.highlight {
+  background: rgba(139, 92, 246, 0.25);
+  color: var(--pink);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   ADD STUDENT BUTTON
+========================================================= */
 
 .add-student-btn {
   height: 54px;
@@ -968,6 +992,7 @@ body.light .theme-toggle .sun {
   font-size: 1.25rem;
 }
 
+
 /* =========================================================
    STUDENT GRID
 ========================================================= */
@@ -980,9 +1005,9 @@ body.light .theme-toggle .sun {
   gap: 22px;
 }
 
+
 /* =========================================================
    STUDENT CARD
-   Main structure kept clean.
 ========================================================= */
 
 .student-card {
@@ -1002,7 +1027,8 @@ body.light .theme-toggle .sun {
     box-shadow 0.35s ease;
 }
 
-/* Gradient border effect */
+
+/* Gradient border */
 
 .student-card::before {
   content: "";
@@ -1031,9 +1057,6 @@ body.light .theme-toggle .sun {
 
   pointer-events: none;
 
-  /*
-       Creates a border-like effect.
-    */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -1043,58 +1066,67 @@ body.light .theme-toggle .sun {
   mask-composite: exclude;
 }
 
-/* Cool hover */
+
+/* Card hover */
 
 .student-card:hover {
   transform: translateY(-8px);
 
-  border-color: rgba(139, 92, 246, 0.35);
+  cursor: pointer;
+
+  border-color: rgba(139, 92, 246, 0.4);
 
   box-shadow:
-    0 22px 50px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(99, 102, 241, 0.08);
+    0 20px 45px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(99, 102, 241, 0.08);
 }
 
 .student-card:hover::before {
   opacity: 1;
 }
 
-/* Shine effect */
+
+/* =========================================================
+   CARD MIRROR EFFECT
+========================================================= */
 
 .student-card::after {
   content: "";
 
   position: absolute;
 
-  top: 0;
+  top: -40%;
+  left: -80%;
 
-  left: -120%;
-
-  width: 60%;
-
-  height: 100%;
+  width: 45%;
+  height: 180%;
 
   z-index: 5;
 
   pointer-events: none;
 
   background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.07),
-    transparent
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.03) 60%,
+    transparent 80%
   );
 
-  transform: skewX(-18deg);
+  transform: rotate(18deg);
 
-  transition: left 0.7s ease;
+  transition: left 0.8s ease;
 }
 
 .student-card:hover::after {
   left: 140%;
 }
 
-/* Image */
+
+/* =========================================================
+   STUDENT IMAGE
+========================================================= */
 
 .student-image-box {
   position: relative;
@@ -1123,13 +1155,15 @@ body.light .theme-toggle .sun {
   filter: brightness(1.04) saturate(1.08);
 }
 
-/* Status */
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 .status {
   position: absolute;
 
   top: 13px;
-
   right: 13px;
 
   padding: 5px 9px;
@@ -1149,7 +1183,10 @@ body.light .theme-toggle .sun {
   backdrop-filter: blur(8px);
 }
 
-/* Card content */
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
 
 .student-content {
   position: relative;
@@ -1191,7 +1228,10 @@ body.light .theme-toggle .sun {
   font-size: 0.7rem;
 }
 
-/* View button */
+
+/* =========================================================
+   VIEW BUTTON
+========================================================= */
 
 .view-btn {
   width: 100%;
@@ -1246,7 +1286,10 @@ body.light .theme-toggle .sun {
   transform: translateX(5px);
 }
 
-/* Load more */
+
+/* =========================================================
+   LOAD MORE
+========================================================= */
 
 .load-more {
   display: flex;
@@ -1282,33 +1325,59 @@ body.light .theme-toggle .sun {
   transform: translateY(-2px);
 }
 
+
+/* =========================================================
+   EMPTY STUDENT STATE
+========================================================= */
+
 .students-grid > h2 {
   grid-column: 1 / -1;
+
   text-align: center;
+
   padding: 70px 20px;
+
   margin: 20px 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border: 1px solid var(--border);
+
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  color: #888;
+
+  background: var(--surface-2);
+
+  color: var(--muted);
+
   font-size: 1.4rem;
+
   font-weight: 600;
+
   letter-spacing: 0.5px;
 }
 
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
 .delete-btn {
   width: 100%;
+
   margin-top: 8px;
+
   padding: 10px 16px;
 
   border: 1px solid rgba(239, 68, 68, 0.35);
+
   border-radius: 10px;
 
   background: rgba(239, 68, 68, 0.08);
+
   color: #ef4444;
 
   font-size: 14px;
+
   font-weight: 600;
+
   cursor: pointer;
 
   transition: all 0.25s ease;
@@ -1316,15 +1385,20 @@ body.light .theme-toggle .sun {
 
 .delete-btn:hover {
   background: #ef4444;
+
   color: white;
+
   border-color: #ef4444;
+
   transform: translateY(-2px);
+
   box-shadow: 0 6px 18px rgba(239, 68, 68, 0.25);
 }
 
 .delete-btn:active {
   transform: translateY(0);
 }
+
 
 /* =========================================================
    ABOUT
@@ -1350,6 +1424,7 @@ body.light .theme-toggle .sun {
   gap: 30px;
 }
 
+
 /* About card */
 
 .about-card {
@@ -1370,10 +1445,21 @@ body.light .theme-toggle .sun {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
 .profile-wrapper {
   position: relative;
 
   flex-shrink: 0;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .profile-image {
@@ -1384,22 +1470,53 @@ body.light .theme-toggle .sun {
 
   border-radius: 20px;
 
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  border: 1px solid var(--border);
+
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
 }
+
+
+/* Image reflection */
 
 .profile-wrapper::after {
   content: "";
 
   position: absolute;
 
-  inset: 9px -9px -9px 9px;
+  inset: 0;
 
-  z-index: -1;
+  border-radius: inherit;
 
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 75%
+  );
 
-  border-radius: 20px;
+  transform: translateX(-120%);
+
+  pointer-events: none;
+
+  transition: transform 0.7s ease;
 }
+
+.profile-wrapper:hover .profile-image {
+  transform: scale(1.04);
+
+  filter: brightness(1.05) saturate(1.08);
+}
+
+.profile-wrapper:hover::after {
+  transform: translateX(120%);
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+========================================================= */
 
 .about-content h3 {
   margin-bottom: 13px;
@@ -1417,43 +1534,101 @@ body.light .theme-toggle .sun {
   line-height: 1.8;
 }
 
-/* Tech tags */
+
+/* =========================================================
+   SKILL TAGS
+========================================================= */
 
 .tech-tags {
   display: flex;
 
   flex-wrap: wrap;
 
-  gap: 7px;
+  gap: 8px;
 
   margin-top: 17px;
 }
 
 .tech-tags span {
-  padding: 5px 9px;
+  position: relative;
+
+  padding: 6px 11px;
 
   border: 1px solid var(--border);
 
-  border-radius: 7px;
+  border-radius: 8px;
 
   background: var(--surface-2);
 
-  color: #a5b4fc;
+  color: var(--text-soft);
 
-  font-size: 0.62rem;
+  font-size: 0.64rem;
+
+  font-weight: 500;
+
+  cursor: default;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Skill reflection */
+
+.tech-tags span::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.5s ease;
 }
 
 .tech-tags span:hover {
-  background: var(--gradient);
+  transform: translateY(-3px);
 
-  border-color: transparent;
+  color: white;
 
-  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.5);
 
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.22);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.16),
+    rgba(168, 85, 247, 0.12)
+  );
+
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.15);
 }
 
-/* Services */
+.tech-tags span:hover::after {
+  left: 140%;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
 
 .services {
   padding: 12px;
@@ -1495,6 +1670,8 @@ body.light .theme-toggle .sun {
   transform: translateX(5px);
 
   border-color: rgba(139, 92, 246, 0.35);
+
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.08);
 }
 
 .service-icon {
@@ -1514,6 +1691,14 @@ body.light .theme-toggle .sun {
   color: #a78bfa;
 
   font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.08) rotate(-3deg);
+
+  background: rgba(139, 92, 246, 0.16);
 }
 
 .service-card h4 {
@@ -1529,6 +1714,7 @@ body.light .theme-toggle .sun {
 
   line-height: 1.6;
 }
+
 
 /* =========================================================
    CONTACT
@@ -1603,6 +1789,16 @@ body.light .theme-toggle .sun {
   color: #a78bfa;
 
   font-weight: 700;
+
+  transition: var(--transition);
+}
+
+.contact-item:hover .contact-icon {
+  transform: translateY(-2px);
+
+  border-color: rgba(139, 92, 246, 0.4);
+
+  background: rgba(139, 92, 246, 0.08);
 }
 
 .contact-item span {
@@ -1617,6 +1813,7 @@ body.light .theme-toggle .sun {
   font-size: 0.75rem;
 }
 
+
 /* Contact form */
 
 .contact-form-card {
@@ -1626,14 +1823,11 @@ body.light .theme-toggle .sun {
 
   border-radius: 23px;
 
-  background: linear-gradient(
-    145deg,
-    rgba(16, 22, 36, 0.95),
-    rgba(11, 16, 30, 0.95)
-  );
+  background: var(--surface);
 
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
 }
+
 
 /* =========================================================
    FORMS
@@ -1709,7 +1903,8 @@ body.light .theme-toggle .sun {
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
 }
 
-/* Validation classes for your JS */
+
+/* Validation */
 
 .form-group.has-error input,
 .form-group.has-error select,
@@ -1725,7 +1920,10 @@ body.light .theme-toggle .sun {
   border-color: var(--success);
 }
 
-/* Send */
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
 
 .send-btn {
   width: 100%;
@@ -1769,6 +1967,7 @@ body.light .theme-toggle .sun {
   transform: translateX(5px);
 }
 
+
 /* =========================================================
    MODALS
 ========================================================= */
@@ -1802,10 +2001,6 @@ body.light .theme-toggle .sun {
     opacity 0.3s ease,
     visibility 0.3s ease;
 }
-
-/*
-   Your JavaScript will add .show
-*/
 
 .modal-overlay.show {
   opacity: 1;
@@ -1847,11 +2042,13 @@ body.light .theme-toggle .sun {
   width: min(430px, 100%);
 }
 
+
+/* Modal close */
+
 .modal-close {
   position: absolute;
 
   top: 17px;
-
   right: 17px;
 
   width: 34px;
@@ -1877,8 +2074,11 @@ body.light .theme-toggle .sun {
 .modal-close:hover {
   color: white;
 
-  background: red;
+  background: var(--danger);
+
+  transform: rotate(5deg);
 }
+
 .modal h3 {
   text-transform: capitalize;
 }
@@ -1902,22 +2102,11 @@ body.light .theme-toggle .sun {
 
   font-size: 0.75rem;
 }
-.modal-avatar {
-  width: 58px;
-  height: 58px;
-  border-radius: 16px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
 
-.modal-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
-/* Modal profile */
+/* =========================================================
+   MODAL PROFILE
+========================================================= */
 
 .modal-profile {
   display: flex;
@@ -1945,6 +2134,10 @@ body.light .theme-toggle .sun {
 
   place-items: center;
 
+  flex-shrink: 0;
+
+  overflow: hidden;
+
   border-radius: 16px;
 
   background: var(--gradient);
@@ -1952,6 +2145,13 @@ body.light .theme-toggle .sun {
   color: white;
 
   font-weight: 800;
+}
+
+.modal-avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
 }
 
 .modal-profile h3 {
@@ -1964,7 +2164,10 @@ body.light .theme-toggle .sun {
   font-size: 0.7rem;
 }
 
-/* Information */
+
+/* =========================================================
+   INFORMATION
+========================================================= */
 
 .information-grid {
   display: grid;
@@ -2006,95 +2209,426 @@ body.light .theme-toggle .sun {
   grid-column: 1 / -1;
 }
 
-/* =========================================================
-   ADD STUDENT FORM
-========================================================= */
-/* =========================================
-   STUDENT FORM
-========================================= */
 
-.student-form {
-  width: min(720px, 100%);
+/* =========================================================
+   STUDENT FORM
+========================================================= */
+
+.form-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  z-index: 2000;
+}
+
+.form-overlay .student-form {
+  width: 100%;
+
+  max-width: 650px;
+
   max-height: calc(100vh - 40px);
 
+  overflow-y: auto;
+
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  background: var(--surface);
+
+  color: var(--text);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   STUDENT FORM HEADER
+========================================================= */
+
+.form-overlay .form-header {
   display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.form-overlay .form-kicker {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+
+  color: var(--muted);
+}
+
+.form-overlay .form-header h2 {
+  margin: 0;
+
+  font-size: 26px;
+
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   FORM CLOSE
+========================================================= */
+
+.form-overlay .close-form {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: var(--surface-2);
+
+  color: var(--muted);
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.form-overlay .close-form:hover {
+  background: var(--danger);
+
+  color: white;
+
+  border-color: var(--danger);
+
+  transform: rotate(5deg);
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.form-overlay .form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px 18px;
+}
+
+.form-overlay .form-group {
+  display: flex;
+
   flex-direction: column;
 
-  overflow-y: auto;
-  padding: 24px;
+  gap: 8px;
+
+  margin-bottom: 0;
+}
+
+.form-overlay .form-group label {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   FORM INPUTS
+========================================================= */
+
+.form-overlay .form-group input,
+.form-overlay .form-group select,
+.form-overlay .form-group textarea {
+  width: 100%;
+
   box-sizing: border-box;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: var(--surface-2);
+
+  color: var(--text);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Form groups */
-.student-form .form-group {
-  margin-bottom: 15px;
+.form-overlay .form-group input,
+.form-overlay .form-group select {
+  height: 46px;
 }
 
-/* =========================================
-   FORM GRID
-========================================= */
+.form-overlay .form-group textarea {
+  min-height: 100px;
 
-.student-form .form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 16px;
+  padding-top: 12px;
+
+  resize: vertical;
 }
 
-/* =========================================
+.form-overlay .form-group input::placeholder,
+.form-overlay .form-group textarea::placeholder {
+  color: var(--muted);
+}
+
+.form-overlay .form-group input:focus,
+.form-overlay .form-group select:focus,
+.form-overlay .form-group textarea:focus {
+  border-color: rgba(139, 92, 246, 0.6);
+
+  background: var(--surface);
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+
+/* Select */
+
+.form-overlay .form-group select {
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+
+/* Number input */
+
+.form-overlay #admissionYear::-webkit-inner-spin-button,
+.form-overlay #admissionYear::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+
+.form-overlay #admissionYear {
+  -moz-appearance: textfield;
+}
+
+
+/* =========================================================
    FORM ACTIONS
-========================================= */
+========================================================= */
+
+.form-overlay .form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 28px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+/* Cancel */
+
+.form-overlay .cancel-btn {
+  height: 44px;
+
+  padding: 0 20px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.form-overlay .cancel-btn:hover {
+  background: var(--surface-2);
+
+  color: var(--text);
+
+  transform: translateY(-2px);
+}
+
+
+/* Add student inside form */
+
+.form-overlay .add-student-btn {
+  height: 44px;
+
+  padding: 0 22px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--gradient);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.form-overlay .add-student-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
+}
+
+
+/* Validation */
+
+.form-overlay .form-group input.error,
+.form-overlay .form-group select.error,
+.form-overlay .form-group textarea.error {
+  border-color: var(--danger);
+}
+
+.form-overlay .form-group input.success,
+.form-overlay .form-group select.success,
+.form-overlay .form-group textarea.success {
+  border-color: var(--success);
+}
+
+
+/* =========================================================
+   GENERAL FORM BUTTONS
+========================================================= */
 
 .form-actions {
   display: flex;
+
   justify-content: flex-end;
+
   gap: 10px;
+
   margin-top: 5px;
 }
 
-/* =========================================
-   BUTTONS
-========================================= */
-
 .cancel-btn {
   padding: 11px 17px;
+
   border: 1px solid var(--border);
+
   border-radius: 10px;
+
   background: transparent;
+
   color: var(--text);
+
   font-size: 0.72rem;
+
   font-weight: 600;
+
   cursor: pointer;
+
   transition: var(--transition);
 }
 
 .cancel-btn:hover {
   background: var(--surface-2);
+
+  transform: translateY(-2px);
 }
 
 .submit-btn {
   min-height: 43px;
+
   padding: 0 17px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 8px;
 
   border-radius: 10px;
-  border: none;
 
   background: var(--gradient);
+
   color: white;
 
   font-size: 0.72rem;
+
   font-weight: 600;
 
   cursor: pointer;
+
   transition: var(--transition);
 }
 
 .submit-btn:hover {
   transform: translateY(-2px);
+
   box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
 }
 
@@ -2102,43 +2636,7 @@ body.light .theme-toggle .sun {
   width: 100%;
 }
 
-/* =========================================
-   TABLET
-========================================= */
 
-@media (max-width: 768px) {
-  .student-form {
-    width: min(600px, calc(100% - 30px));
-    padding: 20px;
-  }
-
-  .student-form .form-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .student-form {
-    width: calc(100% - 20px);
-    max-height: calc(100vh - 20px);
-    padding: 16px;
-    border-radius: 14px;
-  }
-
-  .student-form .form-group {
-    margin-bottom: 12px;
-  }
-
-  .form-actions {
-    flex-direction: column-reverse;
-    gap: 8px;
-  }
-
-  .cancel-btn,
-  .submit-btn {
-    width: 100%;
-  }
-}
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -2146,7 +2644,7 @@ body.light .theme-toggle .sun {
 .footer {
   padding-top: 65px;
 
-  background: #05070d;
+  background: var(--surface);
 
   border-top: 1px solid var(--border);
 }
@@ -2198,7 +2696,7 @@ body.light .theme-toggle .sun {
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--text);
 
   transform: translateX(3px);
 }
@@ -2218,362 +2716,53 @@ body.light .theme-toggle .sun {
 }
 
 .footer-bottom p {
-  color: #596579;
+  color: var(--muted);
+  margin:  0px 50px;
 
-  font-size: 0.62rem;
+  font-size: 0.70rem;
 }
 
-/* form for add student*/
 
-/* =========================================
-   ADD STUDENT FORM
-========================================= */
+/* =========================================================
+   ERROR / VALIDATION
+========================================================= */
 
-.form-overlay {
-  position: fixed;
-  inset: 0;
-
-  display: none;
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  z-index: 1000;
-}
-
-/* =========================================
-   FORM
-========================================= */
-
-.form-overlay .student-form {
-  width: 100%;
-  max-width: 650px;
-
-  padding: 32px;
-
-  box-sizing: border-box;
-
-  background: #111214;
-  color: #f5f5f5;
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-}
-
-/* =========================================
-   HEADER
-========================================= */
-
-.form-overlay .form-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-bottom: 28px;
-}
-
-.form-overlay .form-kicker {
+.error {
   display: block;
 
-  margin-bottom: 5px;
+  margin-top: 5px;
 
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.6px;
+  font-size: 12px;
 
-  color: #777;
+  color: #ff4d4d;
 }
 
-.form-overlay .form-header h2 {
-  margin: 0;
+.input-error {
+  border: 1px solid #ff4d4d !important;
 
-  font-size: 26px;
-  font-weight: 700;
-
-  color: #f5f5f5;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.12);
 }
 
-/* =========================================
-   CLOSE BUTTON
-========================================= */
+.input-valid {
+  border: 1px solid #4ade80 !important;
 
-.form-overlay .close-form {
-  width: 38px;
-  height: 38px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0;
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.04);
-  color: #aaa;
-
-  font-size: 23px;
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
 }
 
-.form-overlay .close-form:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-/* =========================================
-   TWO COLUMN GRID
-========================================= */
-
-.form-overlay .form-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 20px 18px;
-}
-
-/* =========================================
-   FORM GROUP
-========================================= */
-
-.form-overlay .form-group {
-  display: flex;
-  flex-direction: column;
-
-  gap: 8px;
-}
-
-.form-overlay .form-group label {
-  font-size: 13px;
-  font-weight: 600;
-
-  color: #c8c8c8;
-}
-
-/* =========================================
-   INPUT + SELECT
-========================================= */
-
-.form-overlay .form-group input,
-.form-overlay .form-group select {
-  width: 100%;
-  height: 46px;
-
-  box-sizing: border-box;
-
-  padding: 0 14px;
-
-  border: 1px solid #292b2f;
-  border-radius: 10px;
-
-  outline: none;
-
-  background: #191a1e;
-  color: #f2f2f2;
-
-  font-family: inherit;
-  font-size: 14px;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-/* =========================================
-   PLACEHOLDER
-========================================= */
-
-.form-overlay .form-group input::placeholder {
-  color: #62646a;
-}
-
-/* =========================================
-   FOCUS
-========================================= */
-
-.form-overlay .form-group input:focus,
-.form-overlay .form-group select:focus {
-  border-color: #666;
-
-  background: #1c1e22;
-
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
-}
-
-/* =========================================
-   SELECT
-========================================= */
-
-.form-overlay .form-group select {
-  cursor: pointer;
-
-  appearance: auto;
-}
-
-/* Disabled placeholder */
-
-.form-overlay .form-group select option:disabled {
-  color: #62646a;
-}
-
-/* =========================================
-   REMOVE NUMBER INPUT COUNTER
-========================================= */
-
-.form-overlay #admissionYear::-webkit-inner-spin-button,
-.form-overlay #admissionYear::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-overlay #admissionYear {
-  -moz-appearance: textfield;
-}
-
-/* =========================================
-   FORM ACTIONS
-========================================= */
-
-.form-overlay .form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-
-  margin-top: 28px;
-  padding-top: 22px;
-
-  border-top: 1px solid #24262a;
-}
-
-/* =========================================
-   CANCEL
-========================================= */
-
-.form-overlay .cancel-btn {
-  height: 44px;
-
-  padding: 0 20px;
-
-  border: 1px solid #2b2d31;
-  border-radius: 10px;
-
-  background: transparent;
-  color: #aaa;
-
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.form-overlay .cancel-btn:hover {
-  background: #1b1d20;
-  color: #fff;
-}
-
-/* =========================================
-   ADD STUDENT
-========================================= */
-
-.form-overlay .add-student-btn {
-  height: 44px;
-
-  padding: 0 22px;
-
-  border: 1px solid #fff;
-  border-radius: 10px;
-
-  background: #fff;
-  color: #111;
-
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.form-overlay .add-student-btn:hover {
-  background: #e8e8e8;
-}
-
-/* =========================================
-   VALIDATION CLASSES
-========================================= */
-
-.form-overlay .form-group input.error,
-.form-overlay .form-group select.error {
-  border-color: #ef4444;
-}
-
-.form-overlay .form-group input.success,
-.form-overlay .form-group select.success {
-  border-color: #22c55e;
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-  .form-overlay {
-    padding: 14px;
-  }
-
-  .form-overlay .student-form {
-    padding: 24px;
-  }
-
-  .form-overlay .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-overlay .form-actions {
-    flex-direction: column;
-  }
-
-  .form-overlay .cancel-btn,
-  .form-overlay .add-student-btn {
-    width: 100%;
-  }
-}
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
+
 /* 1100px */
 
 @media (max-width: 1100px) {
-  .hero-container {
-    grid-template-columns: 1fr 0.75fr;
-
-    gap: 40px;
-  }
-
   .students-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 
 /* 900px */
 
@@ -2582,23 +2771,8 @@ body.light .theme-toggle .sun {
     gap: 20px;
   }
 
-  .hero-container {
-    grid-template-columns: 1fr;
-
-    text-align: center;
-  }
-
-  .hero-content > p {
-    margin-inline: auto;
-  }
-
-  .hero-buttons,
-  .hero-stats {
-    justify-content: center;
-  }
-
-  .hero-profile-card {
-    margin-top: 20px;
+  .hero-content {
+    margin-left: 6%;
   }
 
   .about-grid {
@@ -2611,6 +2785,7 @@ body.light .theme-toggle .sun {
     gap: 45px;
   }
 }
+
 
 /* 700px */
 
@@ -2625,7 +2800,7 @@ body.light .theme-toggle .sun {
     align-items: stretch;
   }
 
-  .add-student-btn {
+  .student-controls .add-student-btn {
     width: 100%;
   }
 
@@ -2650,17 +2825,103 @@ body.light .theme-toggle .sun {
   }
 }
 
+
+/* 600px */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 650px;
+
+    background-position: 60% center;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 7, 20, 0.96),
+      rgba(5, 7, 20, 0.82)
+    );
+  }
+
+  .hero-content {
+    width: 90%;
+
+    margin: 0 auto;
+
+    padding: 80px 0;
+  }
+
+  .hero h1 {
+    margin-top: 22px;
+
+    font-size: clamp(42px, 12vw, 58px);
+
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    font-size: 16px;
+
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .student-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-overlay {
+    padding: 14px;
+  }
+
+  .form-overlay .student-form {
+    padding: 24px;
+  }
+
+  .form-overlay .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-overlay .form-actions {
+    flex-direction: column;
+  }
+
+  .form-overlay .cancel-btn,
+  .form-overlay .add-student-btn {
+    width: 100%;
+  }
+}
+
+
 /* 550px */
 
 @media (max-width: 550px) {
   .container,
-  .nav-container,
-  .hero-container {
+  .nav-container {
     width: min(calc(100% - 28px), var(--container));
   }
 
+  .navbar {
+    top: 10px;
+
+    width: calc(100% - 20px);
+
+    border-radius: 15px;
+  }
+
   .nav-container {
-    min-height: 68px;
+    min-height: 60px;
+
+    padding: 0 12px;
   }
 
   .brand span {
@@ -2675,37 +2936,12 @@ body.light .theme-toggle .sun {
     min-height: 650px;
   }
 
-  .hero-container {
-    padding: 75px 0;
-  }
-
   .hero h1 {
     font-size: 2.7rem;
   }
 
   .hero-content > p {
     font-size: 0.82rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .primary-btn,
-  .secondary-btn {
-    width: 100%;
-  }
-
-  .hero-stats {
-    gap: 12px;
-  }
-
-  .stat strong {
-    font-size: 1rem;
-  }
-
-  .stat span {
-    font-size: 0.6rem;
   }
 
   .students-grid {
@@ -2749,7 +2985,43 @@ body.light .theme-toggle .sun {
 
     flex-direction: column;
   }
+
+  .profile-image {
+    width: 135px;
+    height: 165px;
+  }
 }
+
+
+/* 480px */
+
+@media (max-width: 480px) {
+  .student-form {
+    width: calc(100% - 20px);
+
+    max-height: calc(100vh - 20px);
+
+    padding: 16px;
+
+    border-radius: 14px;
+  }
+
+  .student-form .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+
+    gap: 8px;
+  }
+
+  .cancel-btn,
+  .submit-btn {
+    width: 100%;
+  }
+}
+
 
 /* 380px */
 
@@ -2765,21 +3037,4 @@ body.light .theme-toggle .sun {
   .hero-profile-card {
     padding: 22px;
   }
-}
-
-.error {
-  display: block;
-  margin-top: 5px;
-  font-size: 12px;
-  color: #ff4d4d;
-}
-
-.input-error {
-  border: 1px solid #ff4d4d !important;
-  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.12);
-}
-
-.input-valid {
-  border: 1px solid #4ade80 !important;
-  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
 }
