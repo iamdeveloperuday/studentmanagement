@@ -7,6 +7,7 @@ const savedStudents = JSON.parse(localStorage.getItem("students"));
 // student saved ma aaiyanga
 const students = savedStudents || [
   {
+    studentId: 1000,
     name: "Uday Kumar Baniya",
     image: "https://i.pravatar.cc/500?img=12",
     status: "Active",
@@ -22,6 +23,7 @@ const students = savedStudents || [
     address: "Birgunj, Nepal",
   },
   {
+    studentId: 1001,
     name: "aman Kumar Baniya",
     image: "https://i.pravatar.cc/500?img=12",
     status: "Active",
@@ -38,6 +40,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1002,
     name: "Anisha Sharma",
     image: "https://i.pravatar.cc/500?img=47",
     status: "Active",
@@ -54,6 +57,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1003,
     name: "Aayush Thapa",
     image: "https://i.pravatar.cc/500?img=33",
     status: "Active",
@@ -70,6 +74,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1004,
     name: "Sneha Karki",
     image: "https://i.pravatar.cc/500?img=49",
     status: "Active",
@@ -86,6 +91,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1005,
     name: "Rohan Yadav",
     image: "https://i.pravatar.cc/500?img=11",
     status: "Active",
@@ -102,6 +108,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1006,
     name: "Priya Gupta",
     image: "https://i.pravatar.cc/500?img=45",
     status: "Active",
@@ -118,6 +125,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1007,
     name: "Bibek Shah",
     image: "https://i.pravatar.cc/500?img=68",
     status: "Active",
@@ -134,6 +142,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1008,
     name: "Kritika Rai",
     image: "https://i.pravatar.cc/500?img=25",
     status: "Active",
@@ -150,6 +159,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1009,
     name: "Sujan Chaudhary",
     image: "https://i.pravatar.cc/500?img=59",
     status: "Active",
@@ -166,6 +176,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1010,
     name: "Nisha Thapa",
     image: "https://i.pravatar.cc/500?img=32",
     status: "Active",
@@ -182,6 +193,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1011,
     name: "Sagar Bista",
     image: "https://i.pravatar.cc/500?img=14",
     status: "Active",
@@ -198,6 +210,7 @@ const students = savedStudents || [
   },
 
   {
+    studentId: 1012,
     name: "Aarati Joshi",
     image: "https://i.pravatar.cc/500?img=44",
     status: "Active",
@@ -223,6 +236,34 @@ function displayCard(arr) {
 
   //clearing previous card
   studentGrid.innerHTML = "";
+
+  // student ka bio dekhna ka liya
+  let openStudentModel = document.querySelector("#studentModal");
+
+  //model element
+
+  const studentModelImg = document.querySelector("#studentModelimg img");
+  const studentModelName = document.querySelector("#studentModelName");
+  const studentModelAbout = document.querySelector("#studentModelabout");
+  const studentModelFullName = document.querySelector("#studentModelFullName");
+  const studentModelId = document.querySelector("#studentModelid");
+  const studentModelDob = document.querySelector("#studentModelDob");
+  const studentModelGender = document.querySelector("#studentModelgender");
+  const studentModelClass = document.querySelector("#studentModelclass");
+  const studentModelSection = document.querySelector("#studentModelSection");
+  const studentModelAdmissionYear = document.querySelector(
+    "#studentModelAddmisionYear",
+  );
+  const studentModelNumber = document.querySelector("#studentmodelNumber");
+  const studentModelEmail = document.querySelector("#studentModelEmail");
+  const studentModelAddress = document.querySelector("#studentModelAddress");
+
+  //student ka bio close karna ka liya
+  let closeStudentModel = document.querySelector("#closeStudentModal");
+
+  closeStudentModel.addEventListener("click", () => {
+    openStudentModel.classList.remove("show");
+  });
 
   //if no student found
   if (arr.length === 0) {
@@ -267,6 +308,7 @@ function displayCard(arr) {
     // Name
     const name = document.createElement("h3");
     name.textContent = student.name;
+    name.style.textTransform = "capitalize";
 
     // Admission year
     const admissionYear = document.createElement("p");
@@ -278,29 +320,6 @@ function displayCard(arr) {
     viewBtn.classList.add("view-btn");
     viewBtn.type = "button";
     viewBtn.textContent = "View Information";
-
-    // student ka bio dekhna ka liya
-    let openStudentModel = document.querySelector("#studentModal");
-
-    //model element
-
-    const studentModelImg = document.querySelector("#studentModelimg img");
-    const studentModelName = document.querySelector("#studentModelName");
-    const studentModelAbout = document.querySelector("#studentModelabout");
-    const studentModelFullName = document.querySelector(
-      "#studentModelFullName",
-    );
-    const studentModelId = document.querySelector("#studentModelid");
-    const studentModelDob = document.querySelector("#studentModelDob");
-    const studentModelGender = document.querySelector("#studentModelgender");
-    const studentModelClass = document.querySelector("#studentModelclass");
-    const studentModelSection = document.querySelector("#studentModelSection");
-    const studentModelAdmissionYear = document.querySelector(
-      "#studentModelAddmisionYear",
-    );
-    const studentModelNumber = document.querySelector("#studentmodelNumber");
-    const studentModelEmail = document.querySelector("#studentModelEmail");
-    const studentModelAddress = document.querySelector("#studentModelAddress");
 
     viewBtn.addEventListener("click", () => {
       studentModelImg.src = student.image;
@@ -323,11 +342,25 @@ function displayCard(arr) {
       openStudentModel.classList.add("show");
     });
 
-    //student ka bio close karna ka liya
-    let closeStudentModel = document.querySelector("#closeStudentModal");
+    // delete btn
 
-    closeStudentModel.addEventListener("click", () => {
-      openStudentModel.classList.remove("show");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.textContent = "Delete";
+
+    deleteBtn.addEventListener("click", () => {
+      const confirmDelete = confirm(`Delete ${student.name}?`);
+      if (!confirmDelete) return;
+
+      let index = students.indexOf(student);
+
+      if (index !== -1) {
+        students.splice(index, 1);
+        localStorage.setItem("students", JSON.stringify(students));
+
+        displayCard(students);
+      }
+   
     });
 
     // Arrow
@@ -338,7 +371,13 @@ function displayCard(arr) {
     viewBtn.append(arrow);
 
     // Put content inside studentContent
-    studentContent.append(studentClass, name, admissionYear, viewBtn);
+    studentContent.append(
+      studentClass,
+      name,
+      admissionYear,
+      viewBtn,
+      deleteBtn,
+    );
 
     // Put imageBox + content inside article
     articleCard.append(imageBox, studentContent);
@@ -785,6 +824,10 @@ addStudentForm.addEventListener("submit", (e) => {
   //=================================================
 
   let newStudent = {
+    studentId: students.length
+      ? Math.max(...students.map((student) => student.studentId || 999)) + 1
+      : 1000,
+
     name: name,
     image: imageURL,
     status: statusValue,
