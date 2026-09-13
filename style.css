@@ -3094,6 +3094,114 @@ body.light .menu-divider {
 }
 
 /* =========================================================
+   STUDORA PREMIUM CURSOR
+========================================================= */
+
+@media (pointer: fine) {
+
+  body {
+    cursor: none;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Small center dot */
+  .cursor-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #6c63ff;
+    box-shadow: 0 0 12px rgba(108, 99, 255, 0.7);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  /* Outer ring */
+  .cursor-ring {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid rgba(108, 99, 255, 0.7);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+      width 0.25s ease,
+      height 0.25s ease,
+      background 0.25s ease,
+      border 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .cursor-icon {
+    font-size: 14px;
+    color: #6c63ff;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.2s ease;
+  }
+
+  /* Hovering clickable elements */
+  .cursor-hover .cursor-ring {
+    width: 52px;
+    height: 52px;
+    background: rgba(108, 99, 255, 0.08);
+    border-color: #6c63ff;
+  }
+
+  .cursor-hover .cursor-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .cursor-hover .cursor-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Student card */
+  .cursor-card .cursor-ring {
+    width: 65px;
+    height: 65px;
+    background: rgba(108, 99, 255, 0.08);
+    border-color: rgba(139, 92, 246, 0.8);
+  }
+
+  .cursor-card .cursor-icon {
+    opacity: 1;
+    transform: scale(1);
+    font-size: 18px;
+  }
+
+  /* When cursor leaves the page */
+  .cursor-hidden .cursor-dot,
+  .cursor-hidden .cursor-ring {
+    opacity: 0;
+  }
+}
+
+
+/* Disable custom cursor on touch devices */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 

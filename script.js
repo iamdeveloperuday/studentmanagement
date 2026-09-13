@@ -1035,3 +1035,95 @@ let mobileSingBtn = document.querySelector("#mobileSignIn");
 mobileSingBtn.addEventListener("click", () => {
   menuShow.classList.remove("show");
 });
+
+//=================================================
+//             CURSOR
+//=================================================
+
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorRing = document.querySelector(".cursor-ring");
+const cursorIcon = document.querySelector(".cursor-icon");
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ringX = 0;
+let ringY = 0;
+
+// Mouse position
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  cursorDot.style.left = `${mouseX}px`;
+  cursorDot.style.top = `${mouseY}px`;
+});
+
+// Smooth ring movement
+function animateCursor() {
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+
+  cursorRing.style.left = `${ringX}px`;
+  cursorRing.style.top = `${ringY}px`;
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+//clickable element
+let clickAbleElement = document.querySelectorAll(
+  "a, button, input, textarea, select",
+);
+
+clickAbleElement.forEach((element) => {
+  element.addEventListener("mouseenter", () => {
+    document.body.classList.add("cursor-hover");
+    cursorIcon.textContent = "↗";
+  });
+
+element.addEventListener("mouseleave", () => {
+      document.body.classList.remove("cursor-card");
+
+    cursorIcon.textContent = "";
+
+  });
+})
+
+// Student cards
+const studentCards = document.querySelectorAll(".student-card");
+
+studentCards.forEach((card) => {
+
+  card.addEventListener("mouseenter", () => {
+
+    document.body.classList.remove("cursor-hover");
+    document.body.classList.add("cursor-card");
+
+    cursorIcon.textContent = "✦";
+
+  });
+
+  card.addEventListener("mouseleave", () => {
+
+    document.body.classList.remove("cursor-card");
+
+    cursorIcon.textContent = "";
+
+  });
+
+});
+
+
+// Hide when mouse leaves website
+document.addEventListener("mouseleave", () => {
+  document.body.classList.add("cursor-hidden");
+});
+
+document.addEventListener("mouseenter", () => {
+  document.body.classList.remove("cursor-hidden");
+});
+  
+
+
+
