@@ -24,13 +24,7 @@
   --success: #22c55e;
   --danger: #ef4444;
 
-  --gradient: linear-gradient(
-    135deg,
-    #6366f1,
-    #8b5cf6,
-    #a855f7,
-    #ec4899
-  );
+  --gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7, #ec4899);
 
   --container: 1200px;
 
@@ -40,7 +34,6 @@
 
   --transition: 0.3s ease;
 }
-
 
 /* =========================================================
    LIGHT THEME
@@ -60,7 +53,6 @@ body.light {
 
   --border: rgba(15, 23, 42, 0.1);
 }
-
 
 /* =========================================================
    RESET
@@ -117,7 +109,6 @@ img {
   max-width: 100%;
 }
 
-
 /* =========================================================
    COMMON
 ========================================================= */
@@ -171,7 +162,6 @@ img {
 .centered {
   text-align: center;
 }
-
 
 /* =========================================================
    FLOATING NAVBAR
@@ -232,7 +222,6 @@ body.light .navbar {
   gap: 20px;
 }
 
-
 /* =========================================================
    BRAND
 ========================================================= */
@@ -271,7 +260,6 @@ body.light .navbar {
 .brand:hover .brand-logo {
   transform: rotate(-4deg) scale(1.05);
 }
-
 
 /* =========================================================
    NAVIGATION
@@ -327,7 +315,6 @@ body.light .navbar {
   width: 18px;
 }
 
-
 /* =========================================================
    NAV ACTIONS
 ========================================================= */
@@ -339,7 +326,6 @@ body.light .navbar {
 
   gap: 8px;
 }
-
 
 /* =========================================================
    SIGN IN
@@ -375,7 +361,6 @@ body.light .navbar {
   box-shadow: 0 8px 22px rgba(139, 92, 246, 0.22);
 }
 
-
 /* =========================================================
    THEME TOGGLE
 ========================================================= */
@@ -409,7 +394,6 @@ body.light .navbar {
   background: rgba(139, 92, 246, 0.08);
 }
 
-
 /* Dark mode */
 
 .theme-toggle .moon {
@@ -420,7 +404,6 @@ body.light .navbar {
   display: none;
 }
 
-
 /* Light mode */
 
 body.light .theme-toggle .moon {
@@ -430,7 +413,6 @@ body.light .theme-toggle .moon {
 body.light .theme-toggle .sun {
   display: block;
 }
-
 
 /* =========================================================
    HERO
@@ -456,7 +438,6 @@ body.light .theme-toggle .sun {
   background-repeat: no-repeat;
 }
 
-
 /* Overlay */
 
 .hero-overlay {
@@ -474,7 +455,6 @@ body.light .theme-toggle .sun {
   z-index: 1;
 }
 
-
 /* Hero content */
 
 .hero-content {
@@ -488,7 +468,6 @@ body.light .theme-toggle .sun {
 
   padding: 100px 0;
 }
-
 
 /* Badge */
 
@@ -516,7 +495,6 @@ body.light .theme-toggle .sun {
   backdrop-filter: blur(10px);
 }
 
-
 /* Heading */
 
 .hero h1 {
@@ -537,7 +515,6 @@ body.light .theme-toggle .sun {
   color: #a78bfa;
 }
 
-
 /* Description */
 
 .hero p {
@@ -552,7 +529,6 @@ body.light .theme-toggle .sun {
   line-height: 1.7;
 }
 
-
 /* Hero buttons */
 
 .hero-buttons {
@@ -564,7 +540,6 @@ body.light .theme-toggle .sun {
 
   flex-wrap: wrap;
 }
-
 
 /* Common button */
 
@@ -596,7 +571,6 @@ body.light .theme-toggle .sun {
     box-shadow 0.3s ease;
 }
 
-
 /* Primary */
 
 .primary-btn {
@@ -627,7 +601,6 @@ body.light .theme-toggle .sun {
   transform: translateX(4px);
 }
 
-
 /* Secondary */
 
 .secondary-btn {
@@ -652,7 +625,6 @@ body.light .theme-toggle .sun {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-
 /* Hero glow */
 
 .hero::after {
@@ -676,7 +648,6 @@ body.light .theme-toggle .sun {
 
   z-index: 1;
 }
-
 
 /* =========================================================
    HERO PROFILE CARD
@@ -822,7 +793,6 @@ body.light .theme-toggle .sun {
   font-size: 1rem;
 }
 
-
 /* =========================================================
    STUDENTS
 ========================================================= */
@@ -856,7 +826,6 @@ body.light .theme-toggle .sun {
 
   white-space: nowrap;
 }
-
 
 /* =========================================================
    SEARCH CONTROLS
@@ -947,7 +916,6 @@ body.light .theme-toggle .sun {
   border-radius: 4px;
 }
 
-
 /* =========================================================
    ADD STUDENT BUTTON
 ========================================================= */
@@ -992,7 +960,6 @@ body.light .theme-toggle .sun {
   font-size: 1.25rem;
 }
 
-
 /* =========================================================
    STUDENT GRID
 ========================================================= */
@@ -1004,7 +971,6 @@ body.light .theme-toggle .sun {
 
   gap: 22px;
 }
-
 
 /* =========================================================
    STUDENT CARD
@@ -1026,7 +992,6 @@ body.light .theme-toggle .sun {
     border-color 0.35s ease,
     box-shadow 0.35s ease;
 }
-
 
 /* Gradient border */
 
@@ -1066,7 +1031,6 @@ body.light .theme-toggle .sun {
   mask-composite: exclude;
 }
 
-
 /* Card hover */
 
 .student-card:hover {
@@ -1084,7 +1048,6 @@ body.light .theme-toggle .sun {
 .student-card:hover::before {
   opacity: 1;
 }
-
 
 /* =========================================================
    CARD MIRROR EFFECT
@@ -1123,7 +1086,6 @@ body.light .theme-toggle .sun {
   left: 140%;
 }
 
-
 /* =========================================================
    STUDENT IMAGE
 ========================================================= */
@@ -1155,7 +1117,6 @@ body.light .theme-toggle .sun {
   filter: brightness(1.04) saturate(1.08);
 }
 
-
 /* =========================================================
    STATUS
 ========================================================= */
@@ -1182,7 +1143,6 @@ body.light .theme-toggle .sun {
 
   backdrop-filter: blur(8px);
 }
-
 
 /* =========================================================
    CARD CONTENT
@@ -1227,7 +1187,6 @@ body.light .theme-toggle .sun {
 
   font-size: 0.7rem;
 }
-
 
 /* =========================================================
    VIEW BUTTON
@@ -1286,7 +1245,6 @@ body.light .theme-toggle .sun {
   transform: translateX(5px);
 }
 
-
 /* =========================================================
    LOAD MORE
 ========================================================= */
@@ -1325,7 +1283,6 @@ body.light .theme-toggle .sun {
   transform: translateY(-2px);
 }
 
-
 /* =========================================================
    EMPTY STUDENT STATE
 ========================================================= */
@@ -1353,7 +1310,6 @@ body.light .theme-toggle .sun {
 
   letter-spacing: 0.5px;
 }
-
 
 /* =========================================================
    DELETE BUTTON
@@ -1399,7 +1355,6 @@ body.light .theme-toggle .sun {
   transform: translateY(0);
 }
 
-
 /* =========================================================
    ABOUT
 ========================================================= */
@@ -1424,7 +1379,6 @@ body.light .theme-toggle .sun {
   gap: 30px;
 }
 
-
 /* About card */
 
 .about-card {
@@ -1444,7 +1398,6 @@ body.light .theme-toggle .sun {
 
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
-
 
 /* =========================================================
    PROFILE IMAGE
@@ -1477,7 +1430,6 @@ body.light .theme-toggle .sun {
     filter 0.45s ease;
 }
 
-
 /* Image reflection */
 
 .profile-wrapper::after {
@@ -1506,13 +1458,14 @@ body.light .theme-toggle .sun {
 .profile-wrapper:hover .profile-image {
   transform: scale(1.04);
 
+  cursor: pointer;
+
   filter: brightness(1.05) saturate(1.08);
 }
 
 .profile-wrapper:hover::after {
   transform: translateX(120%);
 }
-
 
 /* =========================================================
    ABOUT CONTENT
@@ -1533,7 +1486,6 @@ body.light .theme-toggle .sun {
 
   line-height: 1.8;
 }
-
 
 /* =========================================================
    SKILL TAGS
@@ -1578,7 +1530,6 @@ body.light .theme-toggle .sun {
     box-shadow 0.25s ease;
 }
 
-
 /* Skill reflection */
 
 .tech-tags span::after {
@@ -1607,9 +1558,11 @@ body.light .theme-toggle .sun {
 .tech-tags span:hover {
   transform: translateY(-3px);
 
-  color: white;
+  color: var(--purple);
 
   border-color: rgba(139, 92, 246, 0.5);
+
+  cursor: pointer;
 
   background: linear-gradient(
     135deg,
@@ -1617,14 +1570,12 @@ body.light .theme-toggle .sun {
     rgba(168, 85, 247, 0.12)
   );
 
-  box-shadow:
-    0 8px 20px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
 }
 
 .tech-tags span:hover::after {
   left: 140%;
 }
-
 
 /* =========================================================
    SERVICES
@@ -1672,6 +1623,8 @@ body.light .theme-toggle .sun {
   border-color: rgba(139, 92, 246, 0.35);
 
   box-shadow: 0 8px 25px rgba(99, 102, 241, 0.08);
+
+  cursor: pointer;
 }
 
 .service-icon {
@@ -1714,7 +1667,6 @@ body.light .theme-toggle .sun {
 
   line-height: 1.6;
 }
-
 
 /* =========================================================
    CONTACT
@@ -1813,7 +1765,6 @@ body.light .theme-toggle .sun {
   font-size: 0.75rem;
 }
 
-
 /* Contact form */
 
 .contact-form-card {
@@ -1827,7 +1778,6 @@ body.light .theme-toggle .sun {
 
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
 }
-
 
 /* =========================================================
    FORMS
@@ -1903,7 +1853,6 @@ body.light .theme-toggle .sun {
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
 }
 
-
 /* Validation */
 
 .form-group.has-error input,
@@ -1919,7 +1868,6 @@ body.light .theme-toggle .sun {
 .form-group.has-success textarea {
   border-color: var(--success);
 }
-
 
 /* =========================================================
    SEND BUTTON
@@ -1966,7 +1914,6 @@ body.light .theme-toggle .sun {
 .send-btn:hover span {
   transform: translateX(5px);
 }
-
 
 /* =========================================================
    MODALS
@@ -2042,7 +1989,6 @@ body.light .theme-toggle .sun {
   width: min(430px, 100%);
 }
 
-
 /* Modal close */
 
 .modal-close {
@@ -2103,6 +2049,33 @@ body.light .theme-toggle .sun {
   font-size: 0.75rem;
 }
 
+/* =========================================================
+   MODAL edit
+========================================================= */
+
+.modal-edit {
+  position: absolute;
+  top: 17px;
+  right: 75px;
+  width: 50px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.modal-edit:hover {
+  color: white;
+
+  background: var(--success);
+
+  transform: rotate(5deg);
+}
 
 /* =========================================================
    MODAL PROFILE
@@ -2164,7 +2137,6 @@ body.light .theme-toggle .sun {
   font-size: 0.7rem;
 }
 
-
 /* =========================================================
    INFORMATION
 ========================================================= */
@@ -2208,7 +2180,6 @@ body.light .theme-toggle .sun {
 .information-item.full {
   grid-column: 1 / -1;
 }
-
 
 /* =========================================================
    STUDENT FORM
@@ -2260,7 +2231,6 @@ body.light .theme-toggle .sun {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
 }
 
-
 /* =========================================================
    STUDENT FORM HEADER
 ========================================================= */
@@ -2298,7 +2268,6 @@ body.light .theme-toggle .sun {
 
   color: var(--text);
 }
-
 
 /* =========================================================
    FORM CLOSE
@@ -2343,7 +2312,6 @@ body.light .theme-toggle .sun {
   transform: rotate(5deg);
 }
 
-
 /* =========================================================
    FORM GRID
 ========================================================= */
@@ -2373,7 +2341,6 @@ body.light .theme-toggle .sun {
 
   color: var(--text-soft);
 }
-
 
 /* =========================================================
    FORM INPUTS
@@ -2436,7 +2403,6 @@ body.light .theme-toggle .sun {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
 }
 
-
 /* Select */
 
 .form-overlay .form-group select {
@@ -2444,7 +2410,6 @@ body.light .theme-toggle .sun {
 
   appearance: auto;
 }
-
 
 /* Number input */
 
@@ -2458,7 +2423,6 @@ body.light .theme-toggle .sun {
 .form-overlay #admissionYear {
   -moz-appearance: textfield;
 }
-
 
 /* =========================================================
    FORM ACTIONS
@@ -2477,7 +2441,6 @@ body.light .theme-toggle .sun {
 
   border-top: 1px solid var(--border);
 }
-
 
 /* Cancel */
 
@@ -2511,7 +2474,6 @@ body.light .theme-toggle .sun {
   transform: translateY(-2px);
 }
 
-
 /* Add student inside form */
 
 .form-overlay .add-student-btn {
@@ -2542,7 +2504,6 @@ body.light .theme-toggle .sun {
   box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
 }
 
-
 /* Validation */
 
 .form-overlay .form-group input.error,
@@ -2556,7 +2517,6 @@ body.light .theme-toggle .sun {
 .form-overlay .form-group textarea.success {
   border-color: var(--success);
 }
-
 
 /* =========================================================
    GENERAL FORM BUTTONS
@@ -2635,7 +2595,6 @@ body.light .theme-toggle .sun {
 .full-btn {
   width: 100%;
 }
-
 
 /* =========================================================
    FOOTER
@@ -2717,11 +2676,10 @@ body.light .theme-toggle .sun {
 
 .footer-bottom p {
   color: var(--muted);
-  margin:  0px 50px;
+  margin: 0px 50px;
 
-  font-size: 0.70rem;
+  font-size: 0.7rem;
 }
-
 
 /* =========================================================
    ERROR / VALIDATION
@@ -2749,11 +2707,395 @@ body.light .theme-toggle .sun {
   box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
 }
 
+/* =========================================================
+   WELCOME NOTIFICATION
+========================================================= */
+
+.parents {
+  position: fixed;
+  top: 600px;
+  right: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 8px;
+  z-index: 9999;
+}
+
+.notification {
+  width: fit-content;
+  max-width: 300px;
+
+  padding: 10px 18px;
+
+  background-color: rgb(18, 16, 16);
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   GO TO TOP BUTTON
+========================================================= */
+
+#goTopBtn {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #6c63ff;
+  color: white;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  display: none;
+
+  transition: 0.3s ease;
+
+  z-index: 9999;
+}
+
+#goTopBtn:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 480px) {
+  #goTopBtn {
+    right: 20px;
+    bottom: 40px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 18px;
+  }
+}
+
+/* =========================================================
+   MOBILE / TABLET MENU BUTTON
+========================================================= */
+
+.menu-btn {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+  color: inherit;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+}
+
+.menu-btn:hover {
+  background: rgba(108, 99, 255, 0.12);
+  color: #6c63ff;
+}
+
+/* =========================================================
+   NAV ACTIONS ALIGNMENT
+========================================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
+  display: none;
+
+  position: fixed;
+
+  /* Keep menu below navbar */
+  top: 70px;
+  right: 20px;
+
+  width: 240px;
+  max-width: calc(100vw - 40px);
+
+  padding: 12px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(108, 99, 255, 0.15);
+
+  border-radius: 16px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+
+  flex-direction: column;
+  gap: 5px;
+
+  /* Stay above hero image */
+  z-index: 9999;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   SHOW MENU
+========================================================= */
+
+.mobile-menu.show {
+  display: flex;
+}
+
+/* =========================================================
+   MENU LINKS
+========================================================= */
+
+.mobile-menu a {
+  display: block;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  text-decoration: none;
+
+  color: #222;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  border-radius: 9px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    padding-left 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.mobile-menu a:hover {
+  background: rgba(108, 99, 255, 0.1);
+
+  color: #6c63ff;
+
+  padding-left: 18px;
+}
+
+/* =========================================================
+   ACTIVE / CLICK
+========================================================= */
+
+.mobile-menu a:active {
+  transform: scale(0.97);
+}
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.menu-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 7px 0;
+
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   MOBILE SIGN IN
+========================================================= */
+
+.mobile-signin {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 11px 14px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(135deg, #6c63ff, #8b5cf6);
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* =========================================================
+   SIGN IN HOVER
+========================================================= */
+
+.mobile-signin:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 18px rgba(108, 99, 255, 0.3);
+}
+
+/* =========================================================
+   SIGN IN ACTIVE
+========================================================= */
+
+.mobile-signin:active {
+  transform: scale(0.97);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+  /* Show menu button */
+  .menu-btn {
+    display: flex;
+  }
+
+  /* Hide desktop navigation */
+  .nav-links {
+    display: none;
+  }
+
+  /* Hide desktop Sign In */
+  .signin-btn {
+    display: none;
+  }
+
+  /* Tablet menu position */
+  .mobile-menu {
+    top: 80px;
+    right: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  /* Smaller menu button */
+  .menu-btn {
+    width: 38px;
+    height: 38px;
+
+    font-size: 20px;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    top: 80px;
+    right: 12px;
+
+    width: calc(100vw - 24px);
+    max-width: none;
+  }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 769px) {
+  /* Hide hamburger on desktop */
+  .menu-btn {
+    display: none;
+  }
+
+  /* Hide mobile menu on desktop */
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/*toggle*/
+
+/* Default — Dark theme */
+.mobile-menu {
+  background: rgba(25, 25, 40, 0.96);
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.mobile-menu a {
+  color: #f5f5f5;
+}
+
+.mobile-menu a:hover {
+  background: rgba(108, 99, 255, 0.15);
+  color: #8b7cff;
+}
+
+.menu-divider {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Light theme */
+body.light .mobile-menu {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(108, 99, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+body.light .mobile-menu a {
+  color: #222;
+}
+
+body.light .mobile-menu a:hover {
+  background: rgba(108, 99, 255, 0.1);
+  color: #6c63ff;
+}
+
+body.light .menu-divider {
+  background: rgba(0, 0, 0, 0.08);
+}
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
-
 
 /* 1100px */
 
@@ -2762,7 +3104,6 @@ body.light .theme-toggle .sun {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 /* 900px */
 
@@ -2785,7 +3126,6 @@ body.light .theme-toggle .sun {
     gap: 45px;
   }
 }
-
 
 /* 700px */
 
@@ -2824,7 +3164,6 @@ body.light .theme-toggle .sun {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 
 /* 600px */
 
@@ -2901,7 +3240,6 @@ body.light .theme-toggle .sun {
   }
 }
 
-
 /* 550px */
 
 @media (max-width: 550px) {
@@ -2929,6 +3267,7 @@ body.light .theme-toggle .sun {
   }
 
   .signin-btn {
+    display: none;
     padding: 8px 12px;
   }
 
@@ -2992,7 +3331,6 @@ body.light .theme-toggle .sun {
   }
 }
 
-
 /* 480px */
 
 @media (max-width: 480px) {
@@ -3022,19 +3360,27 @@ body.light .theme-toggle .sun {
   }
 }
 
-
 /* 380px */
 
 @media (max-width: 380px) {
-  .theme-toggle {
-    display: none;
-  }
-
   .hero h1 {
     font-size: 2.35rem;
   }
 
   .hero-profile-card {
     padding: 22px;
+  }
+
+  .parents {
+    position: fixed;
+    top: 550px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 8px;
+    z-index: 9999;
   }
 }

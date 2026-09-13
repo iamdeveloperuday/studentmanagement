@@ -9,10 +9,18 @@
       content="A modern student directory for viewing and managing student information."
     />
 
-    <title>STUDORA</title>
+    <title>STUDORA-UDAY</title>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="images/logo.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +33,7 @@
   </head>
 
   <body>
+    <div class="parents"></div>
     <!-- =====================================================
          NAVBAR
     ====================================================== -->
@@ -62,6 +71,10 @@
           >
             <span class="moon">🌙</span>
             <span class="sun">☀️</span>
+          </button>
+          <!-- menu btn - JS will control this -->
+          <button class="menu-btn" id="menu">
+            <i class="fa-duotone fa-solid fa-bars-staggered"></i>
           </button>
         </div>
       </div>
@@ -144,9 +157,7 @@
                 id="clearSearch"
                 type="button"
                 aria-label="Clear search"
-              >
-                
-              </button>
+              ></button>
             </div>
 
             <button class="add-student-btn" id="openAddStudent" type="button">
@@ -452,6 +463,7 @@
         <button class="modal-close" id="closeStudentModal" type="button">
           ×
         </button>
+        <button class="modal-edit" id="editStudentModel">Edit</button>
 
         <span class="section-label"> STUDENT INFORMATION </span>
 
@@ -529,7 +541,7 @@
       </div>
     </div>
 
-      <!-- =====================================================
+    <!-- =====================================================
          ADDSTUDENTS MODEL
     ====================================================== -->
     <!--add student form -->
@@ -767,8 +779,10 @@
         <p>Built with ❤️</p>
       </div>
     </footer>
-
-  
+    <!-- =====================================================
+        gototopBtn
+    ====================================================== -->
+    <button id="goTopBtn" aria-label="Go to top">↑</button>
 
     <script src="script.js"></script>
   </body>

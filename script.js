@@ -463,7 +463,7 @@ toggleBtn.addEventListener("click", () => {
 });
 
 //=================================================
-//                  ADDSTUDENTS FORM OPEN AND CLOSE
+//                  ADD STUDENTS FORM OPEN AND CLOSE
 //                ==================================================
 //add student
 
@@ -489,6 +489,12 @@ closeBtn.forEach((button) => {
 //=================================================
 //                  ADD STUDENT FORM VALIDATION
 //                ==================================================
+
+// let editStudentModel = document.querySelector("#editStudentModel");
+
+// editStudentModel.addEventListener("click", () => {
+//   formOverlay.style.display = "flex";
+// });
 
 //=================================================
 //                  CREATING NEW OBJECTS FOR NEW STUDENT AND PUSHING THEM IN STUDENTS OBJECT
@@ -921,4 +927,111 @@ contactForm.addEventListener("submit", async (e) => {
   } catch (error) {
     alert("Network error. Please try again.");
   }
+});
+
+//=================================================
+//              welcome msg
+//=================================================
+
+//WELCOME NOTIFICATION
+let parentDiv = document.querySelector(".parents");
+
+function welComeNotification(config) {
+  return function (str) {
+    let div = document.createElement("div");
+    div.classList.add("notification");
+    div.textContent = str;
+    parentDiv.appendChild(div);
+    setTimeout(() => {
+      parentDiv.removeChild(div);
+    }, config.duration * 1000);
+    if (document.body.classList.contains("dark")) {
+      div.style.backgroundColor = "rgb(18, 16, 16)";
+      div.style.color = "white";
+    } else {
+      div.style.backgroundColor = "white";
+      div.style.color = "rgb(18, 16, 16)";
+    }
+  };
+}
+
+let fcn = welComeNotification({
+  positionX: "right",
+  positionY: "top",
+  duration: 3,
+});
+
+fcn("WELCOME TO STUDORA-UDAY");
+setTimeout(() => {
+  fcn("CONTACT FOR ANY QUERRY");
+}, 2000);
+
+//=================================================
+//              GOTOPBTN
+//=================================================
+
+let goTopBtn = document.querySelector("#goTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    goTopBtn.style.display = "block";
+  } else {
+    goTopBtn.style.display = "none";
+  }
+});
+
+goTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+//=================================================
+//              MENUBTN
+//=================================================
+
+let menuBtn = document.querySelector("#menu");
+let isOpen = false;
+
+const menuShow = document.createElement("div");
+menuShow.classList.add("mobile-menu");
+menuShow.innerHTML = `
+  <a href="#home">Home</a>
+  <a href="#students">Students</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+
+  <div class="menu-divider"></div>
+
+  <button class="mobile-signin" id="mobileSignIn" type="button">
+    <i class="fa-solid fa-right-to-bracket"></i>
+    Sign In
+  </button>
+`;
+
+document.body.appendChild(menuShow);
+
+menuBtn.addEventListener("click", () => {
+  if (isOpen) {
+    menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
+    isOpen = false;
+  } else {
+    menuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    isOpen = true;
+  }
+  menuShow.classList.toggle("show");
+});
+
+menuShow.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    menuShow.classList.remove("show");
+    menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
+  });
+});
+
+let mobileSingBtn = document.querySelector("#mobileSignIn");
+
+mobileSingBtn.addEventListener("click", () => {
+  menuShow.classList.remove("show");
 });
