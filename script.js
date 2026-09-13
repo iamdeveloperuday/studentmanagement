@@ -877,6 +877,7 @@ addStudentForm.addEventListener("submit", (e) => {
 
   // Reset form
   addStudentForm.reset();
+  alert("Form has sucessfully sumbited");
 
   // Remove validation effects
   addFormName.classList.remove("input-valid");
@@ -891,6 +892,9 @@ addStudentForm.addEventListener("submit", (e) => {
   addFormPhone.classList.remove("input-valid");
   addFormEmail.classList.remove("input-valid");
   addFormAddress.classList.remove("input-valid");
+
+
+
 });
 
 //contact form reset
@@ -1018,15 +1022,12 @@ document.body.appendChild(menuShow);
 //toggling menu btn
 
 menuBtn.addEventListener("click", () => {
-
-let isOpen = menuShow.classList.toggle("show")
+  let isOpen = menuShow.classList.toggle("show");
 
   if (isOpen) {
-        menuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
-
+    menuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
   } else {
-       menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
-
+    menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
   }
 });
 
