@@ -2680,7 +2680,68 @@ body.light .theme-toggle .sun {
 
   font-size: 0.7rem;
 }
+/*LIVE DEMO BTN*/
+/* Portfolio / Live Demo Button */
+.live-demo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
+    margin-left: 12px;
+    padding: 8px 16px;
+
+    border: 1px solid #6c63ff;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #6c63ff;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.live-demo-btn:hover {
+    background: #6c63ff;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(108, 99, 255, 0.25);
+}
+
+/* Dark Theme */
+body:not(.light) .live-demo-btn {
+    color: #a78bfa;
+    border-color: #8b5cf6;
+}
+
+body:not(.light) .live-demo-btn:hover {
+    background: linear-gradient(135deg, #6c63ff, #8b5cf6);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Light Theme */
+body.light .live-demo-btn {
+    color: #5b50d6;
+    border-color: #6c63ff;
+}
+
+body.light .live-demo-btn:hover {
+    background: #6c63ff;
+    color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .live-demo-btn {
+        margin-left: 6px;
+        padding: 7px 13px;
+        font-size: 13px;
+    }
+}
 /* =========================================================
    ERROR / VALIDATION
 ========================================================= */

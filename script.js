@@ -991,11 +991,14 @@ goTopBtn.addEventListener("click", () => {
 //              MENUBTN
 //=================================================
 
+//selecting menuBtn
 let menuBtn = document.querySelector("#menu");
-let isOpen = false;
 
+//creating menusHow using js
 const menuShow = document.createElement("div");
+
 menuShow.classList.add("mobile-menu");
+
 menuShow.innerHTML = `
   <a href="#home">Home</a>
   <a href="#students">Students</a>
@@ -1012,17 +1015,22 @@ menuShow.innerHTML = `
 
 document.body.appendChild(menuShow);
 
+//toggling menu btn
+
 menuBtn.addEventListener("click", () => {
+
+let isOpen = menuShow.classList.toggle("show")
+
   if (isOpen) {
-    menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
-    isOpen = false;
+        menuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+
   } else {
-    menuBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
-    isOpen = true;
+       menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
+
   }
-  menuShow.classList.toggle("show");
 });
 
+//for links
 menuShow.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuShow.classList.remove("show");
@@ -1030,10 +1038,12 @@ menuShow.querySelectorAll("a").forEach((link) => {
   });
 });
 
+//for singIn
 let mobileSingBtn = document.querySelector("#mobileSignIn");
 
 mobileSingBtn.addEventListener("click", () => {
   menuShow.classList.remove("show");
+  menuBtn.innerHTML = `<i class="fa-duotone fa-solid fa-bars-staggered"></i>`;
 });
 
 //=================================================
@@ -1077,8 +1087,7 @@ let clickAbleElement = document.querySelectorAll(
 );
 
 clickAbleElement.forEach((element) => {
-
-    // Skip navbar elements
+  // Skip navbar elements
   if (element.closest(".nav-container")) return;
 
   element.addEventListener("mouseenter", () => {
@@ -1086,38 +1095,30 @@ clickAbleElement.forEach((element) => {
     cursorIcon.textContent = "↗";
   });
 
-element.addEventListener("mouseleave", () => {
-      document.body.classList.remove("cursor-card");
+  element.addEventListener("mouseleave", () => {
+    document.body.classList.remove("cursor-card");
 
     cursorIcon.textContent = "";
-
   });
-})
+});
 
 // Student cards
 const studentCards = document.querySelectorAll(".student-card");
 
 studentCards.forEach((card) => {
-
   card.addEventListener("mouseenter", () => {
-
     document.body.classList.remove("cursor-hover");
     document.body.classList.add("cursor-card");
 
     cursorIcon.textContent = "✦";
-
   });
 
   card.addEventListener("mouseleave", () => {
-
     document.body.classList.remove("cursor-hover");
 
     cursorIcon.textContent = "";
-
   });
-
 });
-
 
 // Hide when mouse leaves website
 document.addEventListener("mouseleave", () => {
@@ -1127,7 +1128,3 @@ document.addEventListener("mouseleave", () => {
 document.addEventListener("mouseenter", () => {
   document.body.classList.remove("cursor-hidden");
 });
-  
-
-
-
