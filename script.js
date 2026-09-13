@@ -1077,6 +1077,10 @@ let clickAbleElement = document.querySelectorAll(
 );
 
 clickAbleElement.forEach((element) => {
+
+    // Skip navbar elements
+  if (element.closest(".nav-container")) return;
+
   element.addEventListener("mouseenter", () => {
     document.body.classList.add("cursor-hover");
     cursorIcon.textContent = "↗";
@@ -1106,7 +1110,7 @@ studentCards.forEach((card) => {
 
   card.addEventListener("mouseleave", () => {
 
-    document.body.classList.remove("cursor-card");
+    document.body.classList.remove("cursor-hover");
 
     cursorIcon.textContent = "";
 
